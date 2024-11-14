@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary: 273 83% 60%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary Colors */
+    --secondary: 335 85% 65%;
+    --secondary-foreground: 273 45% 15%;
+    
+    /* Background Colors */
+    --background: 0 0% 100%;
+    --foreground: 273 45% 15%;
+    
+    /* Card Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 273 45% 15%;
+    
+    /* Popover Colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 273 45% 15%;
+    
+    /* Muted Colors */
+    --muted: 273 60% 97%;
+    --muted-foreground: 273 20% 45%;
+    
+    /* Accent Colors */
+    --accent: 273 60% 97%;
+    --accent-foreground: 273 45% 15%;
+    
+    /* Destructive Colors */
+    --destructive: 350 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border & Input Colors */
+    --border: 273 30% 92%;
+    --input: 273 30% 92%;
+    --ring: 273 83% 60%;
+    
+    /* Border Radius */
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    /* Primary Colors */
+    --primary: 273 80% 75%;
+    --primary-foreground: 273 45% 8%;
+    
+    /* Secondary Colors */
+    --secondary: 335 80% 75%;
+    --secondary-foreground: 273 10% 98%;
+    
+    /* Background Colors */
+    --background: 273 45% 8%;
+    --foreground: 273 10% 98%;
+    
+    /* Card Colors */
+    --card: 273 45% 10%;
+    --card-foreground: 273 10% 98%;
+    
+    /* Popover Colors */
+    --popover: 273 45% 8%;
+    --popover-foreground: 273 10% 98%;
+    
+    /* Muted Colors */
+    --muted: 273 40% 15%;
+    --muted-foreground: 273 20% 75%;
+    
+    /* Accent Colors */
+    --accent: 273 40% 15%;
+    --accent-foreground: 273 10% 98%;
+    
+    /* Destructive Colors */
+    --destructive: 350 84% 60%;
+    --destructive-foreground: 273 10% 98%;
+    
+    /* Border & Input Colors */
+    --border: 273 40% 20%;
+    --input: 273 40% 20%;
+    --ring: 273 80% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  /* Navigation Height */
+  .nav-height {
+    @apply h-16 sm:h-20;
+  }
+
+  /* Hide Scrollbar */
+  .no-visible-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+ 
+  .no-visible-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  /* Glass Effect */
+  .glass-effect {
+    @apply bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm;
+  }
+
+  /* Card Hover Effect */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  /* Button Hover Effect */
+  .button-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  /* Section Spacing */
+  .section-spacing {
+    @apply py-24;
+  }
+
+  /* Container Padding */
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Animation Classes */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2.5s infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - var(--gap))); }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) linear infinite;
+}
+
+@keyframes marquee-vertical {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-100% - var(--gap))); }
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
